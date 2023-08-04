@@ -2241,13 +2241,16 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	public function updateScore(miss:Bool = false)
+		public function updateScore(miss:Bool = false)
 	{
 		scoreTxt.text = 'Score: ' + songScore
-		+ ' | port by glauber01 | Misses: ' + songMisses
 		+ ' | Misses: ' + songMisses
+		+ ' | Port by glauber01 | Misses: ' + songMisses
 		+ ' | Rating: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+
+	var curLight:Int = -1;
+	var curLightEvent:Int = -1;
 
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
